@@ -1,11 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Full Stack Project</title>
-  </head>
-  <body>
-    <!-- You code goes here-->
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Scholar | Geography Quiz</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Geo-Scholar 🌍</div>
+        <div class="stats">
+            Round: <span id="round-num">1</span>/10 | 
+            Total Points: <span id="total-points">0</span>
+        </div>
+        <div class="user-info">Hi, Explorer</div>
+    </header>
+
+    <main class="game-container">
+        <section class="panel clue-dashboard">
+            <h3>CLUE DASHBOARD</h3>
+            <div class="button-grid">
+                <button onclick="revealClue('region', 50)">[REVEAL REGION]<br><span>-50 pts</span></button>
+                <button onclick="revealClue('population', 100)">[REVEAL POPULATION]<br><span>-100 pts</span></button>
+                <button onclick="revealClue('languages', 100)">[REVEAL LANGUAGES]<br><span>-100 pts</span></button>
+                <button onclick="revealClue('borders', 100)">[REVEAL BORDERS]<br><span>-100 pts</span></button>
+            </div>
+            <div class="penalty-box">Current Penalties: -<span id="penalty-count">0</span> pts</div>
+        </section>
+
+        <section class="panel main-board">
+            <div class="potential-score">Potential Score: <span id="current-potential">500</span></div>
+            <h2>GUESS THIS COUNTRY</h2>
+            <div class="flag-container">
+                <img id="country-flag" src="" alt="Flag" class="blurred">
+            </div>
+            <div class="clue-display" id="clue-text">Click a clue to begin...</div>
+            
+            <div class="input-area">
+                <input type="text" id="guess-input" placeholder="Type country name...">
+                <button id="submit-btn" onclick="checkGuess()">[ SUBMIT GUESS ]</button>
+            </div>
+        </section>
+
+        <section class="panel leaderboard">
+            <h3>LEADERBOARD</h3>
+            <ul id="leaderboard-list">
+                <li>1. Loading...</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div id="fact-box" class="panel">
+            <strong>EDUCATIONAL FACT BOX:</strong> 
+            <span id="fact-text">Correctly guess the country to reveal interesting cultural facts here!</span>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>

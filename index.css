@@ -1,1 +1,183 @@
+/* --- Vibrant 90s Spectrum Theme --- */
+:root {
+    --glass-dark: rgba(10, 10, 20, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --neon-yellow: #fff700;
+    --neon-pink: #ff0055;
+    --text-main: #ffffff;
+}
 
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
+    /* This creates the vibrant background similar to your image */
+    background-color: #0a0a1a;
+    background-image: 
+        radial-gradient(circle at 20% 30%, #ff6a00 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, #4a00e0 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #ff0055 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, #0088ff 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+/* --- Navigation / Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass-dark);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--neon-yellow);
+    text-shadow: 0 0 10px rgba(255, 247, 0, 0.5);
+}
+
+.stats {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- Layout Grid --- */
+.game-container {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 20px;
+    align-items: start;
+}
+
+/* --- Panel Styling --- */
+.panel {
+    background: var(--glass-dark);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--neon-pink);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+/* --- Clue Buttons --- */
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--neon-pink);
+    transform: scale(1.03);
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+button span {
+    font-size: 0.75rem;
+    color: var(--neon-yellow);
+}
+
+/* --- Flag & Game Area --- */
+.main-board {
+    text-align: center;
+}
+
+.potential-score {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--neon-yellow);
+    margin-bottom: 15px;
+}
+
+.flag-container {
+    background: #000;
+    border-radius: 12px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid var(--glass-border);
+}
+
+.blurred {
+    filter: blur(40px) saturate(2);
+    width: 110%;
+}
+
+/* --- Input Area --- */
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input {
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+#submit-btn {
+    background: var(--neon-yellow);
+    color: #000;
+    min-width: 150px;
+}
+
+#submit-btn:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-yellow);
+}
+
+/* --- Educational Fact Box --- */
+footer {
+    margin-top: 25px;
+}
+
+#fact-box {
+    border-left: 5px solid var(--neon-yellow);
+    line-height: 1.6;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1000px) {
+    .game-container {
+        grid-template-columns: 1fr;
+    }
+}
